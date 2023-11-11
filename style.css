@@ -119,6 +119,8 @@ h3{
   }
   
 
+  
+
   @media only screen and (max-width: 300px) {
     #cross {
       width: 20px; /* Adjust the size as needed for small screens */
