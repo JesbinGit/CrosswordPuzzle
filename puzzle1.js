@@ -92,7 +92,7 @@ function solveClicked(){
 		var row = token[1];
 		var column = token[2];
 		
-		/*  // Print elements on top
+		  // Print elements on top
 		for(j = row; j >= 0; j--){
 			if(puzzelArrayData[j][column] != 0){
 				document.getElementById('txt' + '_' + j + '_' + column).value = puzzelArrayData[j][column];
@@ -117,7 +117,7 @@ function solveClicked(){
 				document.getElementById('txt' + '_' + row + '_' + k).value = puzzelArrayData[row][k];
 				}else break;
 		} 
-        */
+        
 		var puzzleSolved = true;
     for (var i = 0; i < puzzelArrayData.length; i++) {
       for (var j = 0; j < puzzelArrayData[i].length; j++) {
