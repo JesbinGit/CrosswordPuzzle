@@ -12,7 +12,7 @@ function initializeScreen(){
 			var cell = row.insertCell(-1);
 			if(rowData[j] != 0){
 				var txtID = String('txt' + '_' + i + '_' + j);
-				cell.innerHTML = '<input type="text" class="inputBox" maxlength="1" style="text-transform: uppercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				cell.innerHTML = '<input type="text" class="inputBox" maxlength="1" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
 			}else{
 				cell.style.backgroundColor  = "#87C4FF";
 				
@@ -57,21 +57,24 @@ function clearAllClicked(){
     initializeScreen();
 }
 //Check button
-function checkClicked(){
-	for ( var i = 0; i < puzzelArrayData.length ; i++ ) {
-		var rowData = puzzelArrayData[i];
-		for(var j = 0 ; j < rowData.length ; j++){
-			if(rowData[j] != 0){
-				var selectedInputTextElement = document.getElementById('txt' + '_' + i + '_' + j);
-				if(selectedInputTextElement.value != puzzelArrayData[i][j]){
-					selectedInputTextElement.style.backgroundColor = 'red';
-					
-				}else{
-					selectedInputTextElement.style.backgroundColor = 'white';
-				}
-			}
-		}
-	}
+// Check button
+function checkClicked() {
+  for (var i = 0; i < puzzelArrayData.length; i++) {
+    var rowData = puzzelArrayData[i];
+    for (var j = 0; j < rowData.length; j++) {
+      if (rowData[j] !== 0) {
+        var selectedInputTextElement = document.getElementById('txt' + '_' + i + '_' + j);
+        var userInput = selectedInputTextElement.value.toLowerCase(); // Convert user input to lowercase
+        var expectedValue = puzzelArrayData[i][j].toLowerCase(); // Convert expected value to lowercase
+
+        if (userInput !== expectedValue) {
+          selectedInputTextElement.style.backgroundColor = 'red';
+        } else {
+          selectedInputTextElement.style.backgroundColor = 'white';
+        }
+      }
+    }
+  }
 }
 //Clue Button
 function clueClicked(){
@@ -87,33 +90,47 @@ function clueClicked(){
 
 //Solve Button
 //Solve Button
+// Solve Button
+// Solve Button
 function solveClicked() {
-    if (currentTextInput != null) {
-        var puzzleSolved = true;
-
-        // Iterate through the puzzle array and check correctness
-        for (var i = 0; i < puzzelArrayData.length; i++) {
-            for (var j = 0; j < puzzelArrayData[i].length; j++) {
-                if (puzzelArrayData[i][j] !== 0) {
-                    var cellValue = document.getElementById('txt' + '_' + i + '_' + j).value;
-                    if (cellValue !== puzzelArrayData[i][j]) {
-                        puzzleSolved = false;
-                        break;
-                    }
-                }
-            }
-            if (!puzzleSolved) {
-                break;
-            }
-        }
-
-        // Redirect to another page if the puzzle is solved
-        if (puzzleSolved) {
-            window.location.href = 'puzzle2.html'; // Replace 'puzzle2.html' with the actual page you want to redirect to
-        } else {
-            // If the puzzle is not completely solved, you can perform additional actions or leave it as is
-            // For example, you can display a message to the user indicating that the puzzle is not solved.
-            alert('The puzzle is not completely solved. Keep trying!');
-        }
-    }
-}
+	if (currentTextInput != null) {
+	  var temp1 = currentTextInput;
+	  var token = temp1.split("_");
+	  var row = token[1];
+	  var column = token[2];
+  
+	  // Convert both user input and expected value to lowercase
+	  var userInput = document.getElementById(temp1).value.toLowerCase();
+	  var expectedValue = puzzelArrayData[row][column].toLowerCase();
+  
+	  // Check if the user input matches the expected value
+	  if (userInput === expectedValue) {
+		// Check if the puzzle is completely solved
+		var puzzleSolved = isPuzzleSolved();
+  
+		// Redirect to puzzle2.html if the puzzle is solved
+		if (puzzleSolved) {
+		  window.location.href = 'puzzle2.html';
+		} else {
+		  // Alert if the puzzle is not completely solved
+		  alert('The puzzle is not completely solved. Keep trying!');
+		}
+	  }
+	}
+  }
+  
+  // Function to check if the puzzle is completely solved
+  function isPuzzleSolved() {
+	for (var i = 0; i < puzzelArrayData.length; i++) {
+	  for (var j = 0; j < puzzelArrayData[i].length; j++) {
+		if (puzzelArrayData[i][j] !== 0) {
+		  var cellValue = document.getElementById('txt' + '_' + i + '_' + j).value.toLowerCase();
+		  if (cellValue !== puzzelArrayData[i][j].toLowerCase()) {
+			return false; // Puzzle is not completely solved
+		  }
+		}
+	  }
+	}
+	return true; // Puzzle is completely solved
+  }
+  
