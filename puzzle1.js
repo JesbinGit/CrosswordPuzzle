@@ -84,60 +84,36 @@ function clueClicked(){
 		//checkClicked();
 	}
 }
+
 //Solve Button
-function solveClicked(){
-	if (currentTextInput != null){
-		var temp1 = currentTextInput;
-		var token = temp1.split("_");
-		var row = token[1];
-		var column = token[2];
-		
-		  // Print elements on top
-		for(j = row; j >= 0; j--){
-			if(puzzelArrayData[j][column] != 0){
-				document.getElementById('txt' + '_' + j + '_' + column).value = puzzelArrayData[j][column];
-				}else break;
-		}
-		// Print elements on right
-		for(i = column; i< puzzelArrayData[row].length; i++){
-			if(puzzelArrayData[row][i] != 0){
-				document.getElementById('txt' + '_' + row + '_' + i).value = puzzelArrayData[row][i];
-				}else break;
-		}
-		
-		// Print elements below
-		for(m = row; m< puzzelArrayData.length; m++){
-			if(puzzelArrayData[m][column] != 0){
-				document.getElementById('txt' + '_' + m + '_' + column).value = puzzelArrayData[m][column];
-				}else break;
-		}
-		// Print elements on left
-		for(k = column; k >= 0; k--){
-			if(puzzelArrayData[row][k] != 0){
-				document.getElementById('txt' + '_' + row + '_' + k).value = puzzelArrayData[row][k];
-				}else break;
-		} 
-        
-		var puzzleSolved = true;
-    for (var i = 0; i < puzzelArrayData.length; i++) {
-      for (var j = 0; j < puzzelArrayData[i].length; j++) {
-        if (puzzelArrayData[i][j] !== 0) {
-          var cellValue = document.getElementById('txt' + '_' + i + '_' + j).value;
-          if (cellValue !== puzzelArrayData[i][j]) {
-            puzzleSolved = false;
-            break;
-          }
-        } 
-      } 
-      if (!puzzleSolved) break;
-    }
+//Solve Button
+function solveClicked() {
+    if (currentTextInput != null) {
+        var puzzleSolved = true;
 
+        // Iterate through the puzzle array and check correctness
+        for (var i = 0; i < puzzelArrayData.length; i++) {
+            for (var j = 0; j < puzzelArrayData[i].length; j++) {
+                if (puzzelArrayData[i][j] !== 0) {
+                    var cellValue = document.getElementById('txt' + '_' + i + '_' + j).value;
+                    if (cellValue !== puzzelArrayData[i][j]) {
+                        puzzleSolved = false;
+                        break;
+                    }
+                }
+            }
+            if (!puzzleSolved) {
+                break;
+            }
+        }
 
-    // Redirect to another page if the puzzle is solved
-    if (puzzleSolved) {
-      window.location.href = 'puzzle2.html'; // Replace 'another_page.html' with the actual page you want to redirect to
+        // Redirect to another page if the puzzle is solved
+        if (puzzleSolved) {
+            window.location.href = 'puzzle2.html'; // Replace 'puzzle2.html' with the actual page you want to redirect to
+        } else {
+            // If the puzzle is not completely solved, you can perform additional actions or leave it as is
+            // For example, you can display a message to the user indicating that the puzzle is not solved.
+            alert('The puzzle is not completely solved. Keep trying!');
+        }
     }
-	checkClicked();
-		
-	}
 }
