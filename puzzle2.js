@@ -110,7 +110,7 @@ function solveClicked() {
   
 		// Redirect to puzzle2.html if the puzzle is solved
 		if (puzzleSolved) {
-		  window.location.href = 'puzzle2.html';
+		  window.location.href = 'finalpage.html';
 		} else {
 		  // Alert if the puzzle is not completely solved
 		  alert('The puzzle is not completely solved. Keep trying!');

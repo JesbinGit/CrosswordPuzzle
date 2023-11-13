@@ -1,151 +1,185 @@
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #87C4FF ;
-    font-weight: 100;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #87C4FF ;
+  font-weight: 100;
 
 }
-h1{
-  top: 0%;
+h1 {
+top: 0%;
+bottom: 0%;
+border: 0%;
+text-align: center;
+background-color: #39A7FF;
+margin: auto;
+font-size: 44px;
+}
+h2{
   bottom: 0%;
-  border: 0%;
-  text-align: center;
-  background-color: #39A7FF;
-  margin-top: 0 ;
-  font-size: 44px;
+border: 0%;
+text-align: center;
+background-color: #39A7FF;
+margin-top: 0 ;
+font-size: 34px;
+
 }
 h3{
- 
-  text-align: center;
-  background-color: #39A7FF;
-  margin-top: -2rem;
+
+text-align: center;
+background-color: #39A7FF;
+ margin-top: -2rem ;
 }
 
+.click
+{
+
+display: inline-flex;
+align-items: center;
+justify-content: center;
+height: 50px;
+width: 107px;
+margin: 0 10px; /* Adjust the margin as needed */
+background-color: #39A7FF; /* Blue background */
+color: white;
+border: none;
+text-align: center;
+text-decoration: none;
+font-size: 20px;
+cursor: pointer;
+border-radius: 5px;
+margin-top: 8rem;
+margin-left: 50%;
+
+}
+.click:hover{
+ background-color: #1673be;
+}
+
+
+
 #container {
-    max-width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-  }
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
 
 #cross {
-    text-align: center;
-    width: 30px;
-    height: 30px;
-    margin: 0;
-    padding: 0;
-    border-collapse: collapse;
-    border: 1px solid white;
-  }
-  
-  #buttons {
-    width: 30%;
-  }
-  
-  tr {
-    margin: 0;
-    padding: 0;
-    border-collapse: collapse;
-  }
-  
-  td {
-    height: 30px;
-    width: 30px;
-  }
-  
-  #leftBox {
-    text-align: center;
-    left: 20%;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border: 1px solid white;
+}
 
-  }
-  
-  #rightBox {
-    text-align: center;
+#buttons {
+  width: 30%;
+}
 
-  }
+tr {
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+}
+
+td {
+  height: 30px;
+  width: 30px;
+}
+
+#leftBox {
+  text-align: center;
+  left: 20%;
+
+}
+
+#rightBox {
+  text-align: center;
+
+}
 /* ... Your existing styles ... */
 
 .buttons {
-  text-align: center;
-  margin: 20px auto; /* Adjust the margin as needed */
+text-align: center;
+margin: 20px auto; /* Adjust the margin as needed */
 }
 
 .butt {
-  display: inline-block;
-  height: 50px;
-  width: 107px;
-  margin: 0 10px; /* Adjust the margin as needed */
-  background-color: #39A7FF; /* Green background */
-  color: white;
-  border: none;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
+display: inline-block;
+height: 50px;
+width: 107px;
+margin: 0 10px; /* Adjust the margin as needed */
+background-color: #39A7FF; /* Green background */
+color: white;
+border: none;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+cursor: pointer;
+border-radius: 5px;
 }
 
 .butt:hover {
-  background-color: #1673be; /* Darker green on hover */
+background-color: #1673be; /* Darker green on hover */
 }
 
 /* ... Your existing styles ... */
 
-  
-  #puzzel {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    padding: 0;
-    border-collapse: collapse;
-    border: 0px solid black;
+
+#puzzel {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 0;
+  border-collapse: collapse;
+  border: 0px solid black;
+}
+
+.inputBox {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+#hintsTable {
+  width: 50%;
+  align-items: center;
+  gap: 1rem;
+  margin: auto;
+  border:#FFEED9;
+  border-radius: 1px #FFEED9;
+}
+
+
+@media only screen and (max-width: 300px) {
+  #cross {
+    width: 20px; /* Adjust the size as needed for small screens */
+    height: 20px; /* Adjust the size as needed for small screens */
   }
-  
-  .inputBox {
-    width: 40px;
-    height: 40px;
-    border: 1px solid black;
-    text-align: center;
+
+  #buttons {
+    width: 90%;
+  }
+
+  #leftBox {
+    left: 10%;
+  }
+
+  #rightBox {
+    left: 10%;
   }
 
   #hintsTable {
-    width: 50%;
-    align-items: center;
-    gap: 1rem;
-    margin: auto;
-    border:#FFEED9;
-    border-radius: 1px #FFEED9;
+    width: 100%;
+    margin: 0 auto;
   }
-  
 
-  
-
-  @media only screen and (max-width: 300px) {
-    #cross {
-      width: 20px; /* Adjust the size as needed for small screens */
-      height: 20px; /* Adjust the size as needed for small screens */
-    }
-  
-    #buttons {
-      width: 90%;
-    }
-  
-    #leftBox {
-      left: 10%;
-    }
-  
-    #rightBox {
-      left: 10%;
-    }
-  
-    #hintsTable {
-      width: 100%;
-      margin: 0 auto;
-    }
-  
-    .inputBox {
-      width: 30px;
-      height: 30px;
-    }
+  .inputBox {
+    width: 30px;
+    height: 30px;
   }
+}
